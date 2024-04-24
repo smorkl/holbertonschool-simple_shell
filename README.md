@@ -27,5 +27,5 @@ You can use this shell in the same way you would use any other Linux shell. Here
 ## 🔸AUTHORS🔸
 
 * [**IVAN PACHECO**](https://github.com/ivanpachecos)
-* [**SEBASTIAN MENESES SALAZAR**](https://github.com/https://github.com/smorkl)
+* [**SEBASTIAN MENESES SALAZAR**](https://github.com/smorkl)
 
