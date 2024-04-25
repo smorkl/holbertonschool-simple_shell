@@ -12,19 +12,13 @@ int main()
     char *args[] = {NULL, NULL};
     pid_t pid;
 
-    while (1)
+    while (getline(&buffer, &size_of_buffer, stdin) != -1)
     {
-        printf("%s", "#cisfun$ ");
-        
-        if (getline(&buffer, &size_of_buffer, stdin) == EOF)
-            break;
         if (buffer[0] == '\n')
             continue;
 
         
         buffer[strcspn(buffer, "\n")] = '\0';
-
-        
         args[0] = buffer;
 
         pid = fork();
