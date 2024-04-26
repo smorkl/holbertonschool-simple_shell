@@ -5,47 +5,24 @@
 
 char** tokenize(char* buffer)
 {
-    char** args;
-    char* buffer_copy = strdup(buffer);
+    char** args = (char**)malloc(100 * sizeof(char*));
     char* token = NULL;
     int i = 0;
-    int num_tokens = 1; 
-    char* ptr = buffer;
-
-    while (*ptr) 
-    {
-        if (*ptr == ' ') 
-        {
-            num_tokens++;
-        }
-        ptr++;
-    }
-
-    args = (char**)malloc((num_tokens + 1) * sizeof(char*));
-    if (args == NULL) 
+    
+    if (args == NULL)
     {
         perror("malloc");
         exit(EXIT_FAILURE);
     }
 
-    token = strtok(buffer_copy, " ");
-    if (token == NULL) {
-        args[i++] = strdup("");
-    } else {
-        args[i++] = strdup(token);
-    }
+    token = strtok(buffer, " ");
 
     while (token != NULL)
     {
+        args[i++] = token;
         token = strtok(NULL, " ");
-        if (token != NULL) {
-            args[i++] = strdup(token);
-        }
     }
 
     args[i] = NULL;
-
-    free(buffer_copy);
-
     return args;
 }
