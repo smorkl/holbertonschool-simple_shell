@@ -10,9 +10,14 @@ int main(void)
 	char *buffer = NULL;
 	size_t size_of_buffer = 0;
 	char **args = NULL;
+	int is_terminal = isatty(STDIN_FILENO);
 
-	while (getline(&buffer, &size_of_buffer, stdin) != -1)
+	while (1)
 	{
+		if (is_terminal)
+			printf("#cisfun$ ");
+		if (getline(&buffer, &size_of_buffer, stdin) == -1)
+            break;
 		if (_strcmp(buffer, "exit\n") == 0)
 		{
 			free(buffer);
