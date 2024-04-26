@@ -9,11 +9,11 @@
 #include <sys/wait.h>
 #include <string.h>
 
-char** tokenize(char* buffer);
+char **tokenize(char *buffer);
 size_t custom_strcspn(const char *str, const char *reject);
-void print_environment();
+void print_environment(void);
 void execute_command(char **args);
-char **initialize_args();
+char **initialize_args(void);
 int _strcmp(const char *str1, const char *str2);
 
 #endif
