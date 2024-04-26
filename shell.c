@@ -27,31 +27,31 @@ int main(void)
         }
         if (buffer[0] == '\n')
             continue;
-        
+
         buffer[custom_strcspn(buffer, "\n")] = '\0';
 
         args = tokenize(buffer);
 
         pid = fork();
-        if (pid == -1) 
+        if (pid == -1)
         {
             perror("fork");
             exit(EXIT_FAILURE);
-        } 
-        else if (pid == 0) 
+        }
+        else if (pid == 0)
         {
-            if (args[0] == NULL) 
+            if (args[0] == NULL)
             {
                 exit(EXIT_SUCCESS);
             }
-            else 
+            else
             {
                 execve(args[0], args, NULL);
                 perror("./shell");
                 exit(EXIT_FAILURE);
             }
-        } 
-        else 
+        }
+        else
         {
             int status;
             waitpid(pid, &status, 0);
