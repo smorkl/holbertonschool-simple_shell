@@ -20,7 +20,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 3. Run the shell with the command `./hsh`.
 
-You can use this shell in the same way you would use any other Linux shell. Here are some examples of basic commands:
+You can use this shell in the same way you would use any other `Linux shell`. Here are some examples of basic commands:
 
 ## Examples
 
