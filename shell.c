@@ -17,8 +17,6 @@ int main()
         if (buffer[0] == '\n')
             continue;
 
-        
-        buffer[strcspn(buffer, "\n")] = '\0';
         args[0] = buffer;
 
         pid = fork();
