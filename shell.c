@@ -10,7 +10,7 @@ int main()
 {
     char *buffer = NULL;
     size_t size_of_buffer = 0;
-    char *args[] = {NULL, NULL};
+    char **args = NULL;
     pid_t pid;
 
     while (getline(&buffer, &size_of_buffer, stdin) != -1)
@@ -19,7 +19,8 @@ int main()
             continue;
         
         buffer[custom_strcspn(buffer, "\n")] = '\0';
-        args[0] = buffer;
+        
+        args = tokenize(buffer);
 
         pid = fork();
         if (pid == -1) {
@@ -33,6 +34,7 @@ int main()
             int status;
             waitpid(pid, &status, 0);
         }
+        free(args);
     }
 
     free(buffer);

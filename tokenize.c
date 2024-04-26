@@ -7,12 +7,12 @@ char** tokenize(char* buffer)
 {
     char** args = (char**)malloc(100 * sizeof(char*));
     char* token = NULL;
-    int i;
+    int i = 0;
     
     if (args == NULL)
     {
-        fprintf(stderr, "Error: No se pudo tokenizar la entrada\n");
-        return NULL; 
+        perror("malloc");
+        exit(EXIT_FAILURE);
     }
 
     token = strtok(buffer, " ");
