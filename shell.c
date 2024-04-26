@@ -13,12 +13,12 @@ int main(void)
 
 	while (getline(&buffer, &size_of_buffer, stdin) != -1)
 	{
-		if (strcmp(buffer, "exit\n") == 0)
+		if (_strcmp(buffer, "exit\n") == 0)
 		{
 			free(buffer);
 			return (0);
 		}
-		if (strcmp(buffer, "env\n") == 0)
+		if (_strcmp(buffer, "env\n") == 0)
 		{
 			print_environment();
 			continue;
