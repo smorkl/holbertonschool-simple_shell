@@ -3,8 +3,8 @@
 
 void print_environment()
 {
-    extern char **environ;  // Variable global que contiene las variables de entorno
-    char **env = environ;   // Puntero para recorrer las variables de entorno
+    extern char **environ;
+    char **env = environ;
 
     while (*env != NULL) 
     {
