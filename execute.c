@@ -1,10 +1,9 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include "shell.h"
 
+/**
+ * execute_command - Executes a command with the given arguments.
+ * @args: Array of strings containing the command and its arguments.
+ */
 void execute_command(char **args)
 {
     pid_t pid = fork();
