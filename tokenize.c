@@ -13,6 +13,7 @@ char **tokenize(char *buffer)
 {
 	char **args = NULL;
 	char *buffer_copy = NULL;
+    char *ptr;
 	char *token = NULL;
 	int i = 0, num_tokens = 1, j;
 
@@ -24,7 +25,7 @@ char **tokenize(char *buffer)
 		args = initialize_args();
 		return (args);
 	}
-	for (char *ptr = buffer; *ptr; ptr++)
+	for (ptr = buffer; *ptr; ptr++)
 		num_tokens += (*ptr == ' ');
 
 	args = malloc((num_tokens + 1) * sizeof(char *));
