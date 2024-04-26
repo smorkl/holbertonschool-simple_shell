@@ -10,7 +10,6 @@ int main(void)
 	char *buffer = NULL;
 	size_t size_of_buffer = 0;
 	char **args = NULL;
-	pid_t pid;
 
 	while (getline(&buffer, &size_of_buffer, stdin) != -1)
 	{

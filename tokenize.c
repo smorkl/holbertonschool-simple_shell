@@ -14,7 +14,7 @@ char **tokenize(char *buffer)
 	char **args = NULL;
 	char *buffer_copy = NULL;
 	char *token = NULL;
-	int i = 0, num_tokens = 1;
+	int i = 0, num_tokens = 1, j;
 
 	while (*buffer && *buffer == ' ')
 		buffer++;
@@ -48,7 +48,7 @@ char **tokenize(char *buffer)
 	
     args[i] = NULL;
 	
-    for (int j = 0; j < i; j++)
+    for (j = 0; j < i; j++)
 		free(args[j]);
 
 	free(buffer_copy);
