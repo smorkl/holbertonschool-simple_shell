@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
+#include "shell.h"
 
 int main()
 {
@@ -16,7 +17,8 @@ int main()
     {
         if (buffer[0] == '\n')
             continue;
-
+        
+        buffer[custom_strcspn(buffer, "\n")] = '\0';
         args[0] = buffer;
 
         pid = fork();
