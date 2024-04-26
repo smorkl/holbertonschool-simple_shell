@@ -29,7 +29,7 @@ size_t custom_strcspn(const char *str, const char *reject)
 }
 
 /**
- * mi_strcmp - Compares two strings.
+ * _strcmp - Compares two strings.
  * @str1: The first string to be compared.
  * @str2: The second string to be compared.
  *

@@ -6,12 +6,11 @@
  */
 void print_environment(void)
 {
-    extern char **environ;
-    char **env = environ;
+	char **env = environ;
 
-    while (*env != NULL)
-    {
-        printf("%s\n", *env);
-        env++;
-    }
+	while (*env != NULL)
+	{
+		printf("%s\n", *env);
+		env++;
+	}
 }
