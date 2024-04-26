@@ -15,7 +15,7 @@ int main()
 
     while (getline(&buffer, &size_of_buffer, stdin) != -1)
     {
-        if (strcmp(buffer, "exit\n") == 0)
+        if (strcmp(buffer, "exit \n") == 0)
         {
             free(buffer);
             return 0;
