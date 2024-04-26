@@ -27,9 +27,16 @@ int main()
             perror("fork");
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
+            if (args[0] == NULL) {
+            // Si no hay comandos para ejecutar, simplemente salimos con éxito
+            printf("ok\n");
+            exit(EXIT_SUCCESS);
+            }else {
             execve(args[0], args, NULL);
+            // Si execve falla, mostramos un mensaje de error y salimos con un código de error
             perror("./shell");
             exit(EXIT_FAILURE);
+            }
         } else {
             int status;
             waitpid(pid, &status, 0);
