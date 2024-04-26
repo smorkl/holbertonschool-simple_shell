@@ -12,12 +12,6 @@ char** tokenize(char* buffer)
     int num_tokens = 1; 
     char* ptr = buffer;
 
-    if (args == NULL || buffer_copy == NULL)
-    {
-        perror("malloc or strdup");
-        exit(EXIT_FAILURE);
-    }
-
     while (*ptr) 
     {
         if (*ptr == ' ') 
