@@ -28,7 +28,7 @@ int main()
             exit(EXIT_FAILURE);
         } else if (pid == 0) {
             if (args[0] == NULL) {
-            printf("ok\n");
+            printf("OK");
             exit(EXIT_SUCCESS);
             }else {
             execve(args[0], args, NULL);
