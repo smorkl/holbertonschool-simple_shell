@@ -1,6 +1,3 @@
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "shell.h"
 
 /**
@@ -13,7 +10,7 @@ char **tokenize(char *buffer)
 {
 	char **args = NULL;
 	char *buffer_copy = NULL;
-    char *ptr;
+	char *ptr;
 	char *token = NULL;
 	int i = 0, num_tokens = 1, j;
 
@@ -25,6 +22,7 @@ char **tokenize(char *buffer)
 		args = initialize_args();
 		return (args);
 	}
+
 	for (ptr = buffer; *ptr; ptr++)
 		num_tokens += (*ptr == ' ');
 
@@ -33,6 +31,7 @@ char **tokenize(char *buffer)
 	{
 		exit(EXIT_FAILURE);
 	}
+
 	buffer_copy = strdup(buffer);
 	if (buffer_copy == NULL)
 	{
@@ -46,10 +45,10 @@ char **tokenize(char *buffer)
 		args[i++] = strdup(token);
 		token = strtok(NULL, " ");
 	}
-	
-    args[i] = NULL;
-	
-    for (j = 0; j < i; j++)
+
+	args[i] = NULL;
+
+	for (j = 0; j < i; j++)
 		free(args[j]);
 
 	free(buffer_copy);
