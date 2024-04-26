@@ -14,5 +14,6 @@ size_t custom_strcspn(const char *str, const char *reject);
 void print_environment();
 void execute_command(char **args);
 char **initialize_args();
+int _strcmp(const char *str1, const char *str2);
 
 #endif
