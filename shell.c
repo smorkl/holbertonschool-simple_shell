@@ -20,6 +20,11 @@ int main()
             free(buffer);
             return 0;
         }
+        if (strcmp(buffer, "env\n") == 0)
+        {
+            print_environment();
+            continue;
+        }
         if (buffer[0] == '\n')
             continue;
         

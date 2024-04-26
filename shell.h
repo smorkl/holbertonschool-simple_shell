@@ -5,5 +5,6 @@
 
 char** tokenize(char* buffer);
 size_t custom_strcspn(const char *str, const char *reject);
+void print_environment();
 
 #endif
