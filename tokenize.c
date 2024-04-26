@@ -11,9 +11,8 @@ char** tokenize(char* buffer)
     
     if (args == NULL)
     {
-        // Manejar el error de asignación de memoria
         fprintf(stderr, "Error: No se pudo tokenizar la entrada\n");
-        return NULL; // Continuar con la siguiente iteración del bucle
+        return NULL; 
     }
 
     token = strtok(buffer, " ");
