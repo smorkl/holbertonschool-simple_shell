@@ -32,10 +32,12 @@ int main(void)
 			continue;
 
 		buffer[custom_strcspn(buffer, "\n")] = '\0';
-
+		
 		args = tokenize(buffer);
-		execute_command(args);
-
+		if (args[0] != NULL)
+		{
+			execute_command(args);
+		}
 		free(args);
 	}
 
