@@ -7,44 +7,51 @@
  */
 char **tokenize(char *buffer)
 {
-	char **args = NULL;
-	char *buffer_copy = NULL, *ptr, *token = NULL;
-	int i = 0, num_tokens = 1, j;
+    char **args = NULL;
+    char *buffer_copy = NULL, *token = NULL;
+    char *delimiters = " \t\n";
+    int i = 0, num_tokens = 0, j;
+    char *ptr;
 
-	while (*buffer && *buffer == ' ')
-		buffer++;
-	if (*buffer == '\0')
-	{
-		args = initialize_args();
-		return (args);
-	}
-	for (ptr = buffer; *ptr; ptr++)
-		num_tokens += (*ptr == ' ');
+    for (ptr = buffer; *ptr; ptr++) {
+        if (!strchr(delimiters, *ptr) && (*(ptr + 1) == '\0' || strchr(delimiters, *(ptr + 1)))) {
+            num_tokens++;
+        }
+    }
 
-	args = malloc((num_tokens + 1) * sizeof(char *));
-	if (args == NULL)
-	{
-		exit(EXIT_FAILURE);
-	}
-	buffer_copy = strdup(buffer);
-	if (buffer_copy == NULL)
-	{
-		perror("strdup");
-		exit(EXIT_FAILURE);
-	}
+    args = malloc((num_tokens + 1) * sizeof(char *));
+    if (args == NULL) {
+        perror("malloc");
+        exit(EXIT_FAILURE);
+    }
 
-	token = strtok(buffer_copy, " ");
-	while (token != NULL)
-	{
-		args[i++] = strdup(token);
-		token = strtok(NULL, " ");
-	}
+    buffer_copy = strdup(buffer);
+    if (buffer_copy == NULL) {
+        perror("strdup");
+        exit(EXIT_FAILURE);
+    }
+    token = strtok(buffer_copy, delimiters);
+    while (token != NULL) {
+        args[i] = strdup(token);
+        if (args[i] == NULL) {
+            perror("strdup");
+            for (i = 0; i < num_tokens; i++) {
+                free(args[i]);
+            }
+            free(args);
+            exit(EXIT_FAILURE);
+        }
+        i++;
+        token = strtok(NULL, delimiters);
+    }
 
-	args[i] = NULL;
+    args[i] = NULL;
+
+    free(buffer_copy);
 
 	for (j = 0; j < i; j++)
 		free(args[j]);
 
-	free(buffer_copy);
-	return (args);
+    return args;
 }
+
